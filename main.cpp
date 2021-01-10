@@ -1,7 +1,40 @@
 
 #include <iostream>
-#include <ctime>
+#include "ctime"
 using namespace std;
+unsigned int fib_normal_rec(unsigned int n);
+unsigned int fib_rail_rec(unsigned int n);
+unsigned int fib_no_rec(unsigned int n);
+int main()
+{
+
+    unsigned int fib_num = 40000;
+    clock_t t1,t2,t3,t4,t5,t6;
+    t1 = clock();
+    //fib_normal_rec(fib_num);
+    t2 = clock();
+    //cout << "Normal fib time cost:" << 1000*(t2-t1)/ CLOCKS_PER_SEC<< "ms" << endl;
+
+    cout << "----------------------------------------------------------" << endl;
+
+
+    t3 = clock();
+    fib_rail_rec(fib_num);
+    t4 = clock();
+    cout << "Rail fib time cost:" << 1000*(t4-t3)/ CLOCKS_PER_SEC << "ms" << endl;
+
+
+
+    cout << "---------------------------------------------------------" << endl;
+
+    t5 = clock();
+    fib_no_rec(fib_num);
+    t6 = clock();
+    cout << "No recusion fib time cost:" <<1000* (t6-t5)/ CLOCKS_PER_SEC<< "ms" << endl;
+
+    return 0;
+
+}
 
 // Normal recusion for fibonacci
 unsigned int fib_normal_rec(unsigned int n)
@@ -39,33 +72,3 @@ unsigned int fib_no_rec(unsigned int n)
     return y;
 }
 
-int main()
-{
-
-    unsigned int fib_num = 40000;
-    clock_t t1,t2,t3,t4,t5,t6;
-    t1 = clock();
-   //fib_normal_rec(fib_num);
-    t2 = clock();
-    //cout << "Normal fib time cost:" << 1000*(t2-t1)/ CLOCKS_PER_SEC<< "ms" << endl;
-
-    cout << "----------------------------------------------------------" << endl;
-
-
-    t3 = clock();
-    fib_rail_rec(fib_num);
-    t4 = clock();
-    cout << "Rail fib time cost:" << 1000*(t4-t3)/ CLOCKS_PER_SEC << "ms" << endl;
-
-
-
-    cout << "---------------------------------------------------------" << endl;
-
-    t5 = clock();
-    fib_no_rec(fib_num);
-    t6 = clock();
-    cout << "No recusion fib time cost:" <<1000* (t6-t5)/ CLOCKS_PER_SEC<< "ms" << endl;
-
-    return 0;
-
-}
