@@ -10,6 +10,7 @@ int main()
 
     unsigned int fib_num = 40000;
     clock_t t1,t2,t3,t4,t5,t6;
+    cout<<"fib num:"<<fib_num<<endl;
     t1 = clock();
     //fib_normal_rec(fib_num);
     t2 = clock();
